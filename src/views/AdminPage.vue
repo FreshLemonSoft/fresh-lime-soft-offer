@@ -1,5 +1,6 @@
 <template>   
-   <Header />
+   <div>
+      <Header />
 
    <div class="content">
       <p class="form-instruction">1. Введите номер контактов и выберите тип оффера</p>
@@ -78,6 +79,7 @@
 
    
    <Footer />
+   </div>
 </template>
 
 <script>

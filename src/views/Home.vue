@@ -1,6 +1,6 @@
 <template>
-
-  <Header />
+  <div>
+     <Header />
 
   <div class="content offer">
       <p class="text">Привет, {{inputs.name}}!</p>
@@ -16,6 +16,8 @@
 
 
    <Footer />
+
+  </div>
 </template>
 
 <script>
@@ -48,26 +50,26 @@ export default {
          selectedOffer: 'trainee',
       }
    },
-   methods: {
-      // async getInvites() {
-      //    const res = await fetch('http://localhost:3000/invites', {
-      //       method:'GET',
-      //       body: JSON.stringify({
-      //          name: this.inputs.name,
-      //          rank: this.inputs.rank,
-      //          vacancyLink: this.inputs.vacancyLink,
-      //          traineePeriod: this.inputs.traineePeriod,
-      //          qualifyingPeriod: this.inputs.qualifyingPeriod,
-      //          traineeSalary: this.inputs.traineeSalary,
-      //          qualifyingSalary: this.inputs.qualifyingSalary,
-      //          mainSalary: this.inputs.mainSalary,
-      //          appointmentDate: this.inputs.appointmentDate,
-      //          meetPerson: this.inputs.meetPerson,
-      //          contactPhone: this.inputs.contactPhone,
-      //       })
-      //    })
-      //    console.log(res);
-      // },
-   },
+   // methods: {
+   //    async getInvites() {
+   //       const res = await fetch('http://localhost:3000/invites', {
+   //          method:'GET',
+   //          body: JSON.stringify({
+   //             name: this.inputs.name,
+   //             rank: this.inputs.rank,
+   //             vacancyLink: this.inputs.vacancyLink,
+   //             traineePeriod: this.inputs.traineePeriod,
+   //             qualifyingPeriod: this.inputs.qualifyingPeriod,
+   //             traineeSalary: this.inputs.traineeSalary,
+   //             qualifyingSalary: this.inputs.qualifyingSalary,
+   //             mainSalary: this.inputs.mainSalary,
+   //             appointmentDate: this.inputs.appointmentDate,
+   //             meetPerson: this.inputs.meetPerson,
+   //             contactPhone: this.inputs.contactPhone,
+   //          })
+   //       })
+   //       console.log(res);
+   //    },
+   // },
 }
 </script>
