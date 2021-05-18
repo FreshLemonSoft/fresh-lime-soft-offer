@@ -22,11 +22,11 @@ const user = new Schema({
         default: null,
     },
     qualifyingPeriod: {
-        type: Number,
+        type: String,
         required: true,
     },
     traineePeriod: {
-        type: Number,
+        type: String,
         default: null,
     },
     vacancyLink: {
@@ -34,7 +34,7 @@ const user = new Schema({
         required: true,
     },
     appointmentDate: {
-        type: Date,
+        type: String,
         required: true,
     },
     meetPerson: {
@@ -44,6 +44,10 @@ const user = new Schema({
     contactPhone: {
         type: String,
         default: '+375 33 317-32-84'
+    },
+    HRcontactPhone: {
+        type: String,
+        required: true,
     },
     createdAt: {
         type: Date,

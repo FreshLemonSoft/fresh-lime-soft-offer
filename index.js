@@ -1,15 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const usersRoutes = require('./routes/usersRoutes');
 const invitesRoutes = require('./routes/invitesRoutes');
 
-const PORT = 9000;
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
 app.use('/users', usersRoutes);
 app.use('/invites', invitesRoutes);
+
+const PORT = 9000;
 
 const start = async() => {
     try {
