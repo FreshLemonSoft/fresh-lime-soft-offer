@@ -4,4 +4,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+    
+    &:last-child {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
 }

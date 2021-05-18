@@ -7,13 +7,13 @@
          <input 
             type="text" 
             name="contact-input" 
-            class="input-value" 
+            class="input-value grid" 
             :placeholder="contactNumber">
 
          <select 
             name="offertype" 
             v-model="selectedOffer"
-            class="select-offer">
+            class="select-offer grid">
 
             <option 
                v-for="offer in offers"
@@ -26,24 +26,25 @@
          </select>
 
          <p class="form-instruction">2. Введите значения в поля</p>
-
-         <input type="text" :class="inputs.name.class" v-model="inputs.name.value" :placeholder="inputs.name.placeholder">
-         <input type="text" class="input-value" v-model="inputs.rank" placeholder="Должность">
-         <input type="text" class="input-value" v-model="inputs.vacancyLink" placeholder="Ссылка на вакансию">
-         <div 
-            v-if="selectedOffer === 'trainee'" 
-            class="offer-type">
-            <input type="text" class="input-value" v-model="inputs.traineePeriod" placeholder="Период стажировки">
-            <input type="text" class="input-value" v-model="inputs.traineeSalary" placeholder="З/П стажировки">
+         <div class="inputs">
+            <input type="text" :class="inputs.name.class" v-model="inputs.name.value" :placeholder="inputs.name.placeholder">
+            <input type="text" class="input-value" v-model="inputs.rank" placeholder="Должность">
+            <input type="text" class="input-value" v-model="inputs.vacancyLink" placeholder="Ссылка на вакансию">
+            <div 
+               v-if="selectedOffer === 'trainee'" 
+               class="offer-type">
+               <input type="text" class="input-value" v-model="inputs.traineePeriod" placeholder="Период стажировки">
+               <input type="text" class="input-value" v-model="inputs.traineeSalary" placeholder="З/П стажировки">
+            </div>
+            <div v-else class="offer-type">
+               <input type="text" class="input-value" v-model="inputs.qualifyingPeriod" placeholder="Период испытательного срока">
+               <input type="text" class="input-value" v-model="inputs.qualifyingSalary" placeholder="З/П испыталтельного срока">
+            </div>
+            <input type="text" class="input-value" v-model="inputs.mainSalary" placeholder="З/П контракта">
+            <input type="text" class="input-value" v-model="inputs.appointmentDate" placeholder="Дата, Время">
+            <input type="text" class="input-value" v-model="inputs.meetPerson" placeholder="Встречающий сотрудник">
+            <input type="text" class="input-value" v-model="inputs.contactPhone" placeholder="Телефон для связи">
          </div>
-         <div v-else class="offer-type">
-            <input type="text" class="input-value" v-model="inputs.qualifyingPeriod" placeholder="Период испытательного срока">
-            <input type="text" class="input-value" v-model="inputs.qualifyingSalary" placeholder="З/П испыталтельного срока">
-         </div>
-         <input type="text" class="input-value" v-model="inputs.mainSalary" placeholder="З/П контракта">
-         <input type="text" class="input-value" v-model="inputs.appointmentDate" placeholder="Дата, Время">
-         <input type="text" class="input-value" v-model="inputs.meetPerson" placeholder="Встречающий сотрудник">
-         <input type="text" class="input-value" v-model="inputs.contactPhone" placeholder="Телефон для связи">
 
       <button 
          type="submit"
