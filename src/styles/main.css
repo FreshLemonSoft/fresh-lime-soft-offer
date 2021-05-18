@@ -1,0 +1,230 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  background: #eee;
+  font-family: 'Rubik';
+  background: rgba(10, 31, 42, 0.95);
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url("./../assets/fonts/Rubik/Rubik-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+header {
+  background: rgba(10, 31, 42, 0.95);
+  padding: 5px;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.logo img {
+  display: block;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+.nav li + li {
+  margin-left: 20px;
+}
+
+.nav li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.input-value {
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  outline: none;
+  border: 1px solid #ccc;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.input-value:focus {
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  -webkit-box-shadow: 0 0 10px 3px #ccc;
+          box-shadow: 0 0 10px 3px #ccc;
+}
+
+.form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px 20px;
+}
+
+.form .submit-btn {
+  color: #fff;
+  background: #55AF2A;
+  outline: none;
+  border: 1px solid transparent;
+  padding: 10px;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  border-radius: 15px;
+  letter-spacing: 2px;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 3;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form .submit-btn:hover {
+  text-shadow: 0 0 10px #fff;
+  border: 1px solid #fff;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.form-instruction {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.text {
+  margin: 20px auto;
+  line-height: 30px;
+  word-spacing: 3px;
+  font-size: 20px;
+  cursor: default;
+  color: #fff;
+}
+
+.text a {
+  color: #55AF2A;
+  text-decoration: none;
+  border-bottom: 2px dashed #fff;
+}
+
+.offer {
+  background: rgba(10, 31, 42, 0.95);
+  width: 45%;
+  text-align: left;
+  padding: 20px;
+  -webkit-box-shadow: 0 0 25px 2px #ccc;
+          box-shadow: 0 0 25px 2px #ccc;
+  border-radius: 10px;
+  position: relative;
+  margin: 50px auto;
+  overflow: hidden;
+}
+
+.offer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50px 50px 0;
+  border-color: transparent #55AF2A transparent transparent;
+}
+
+.select-offer {
+  padding: 10px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.offer-type {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.gif-wrap {
+  max-width: 50%;
+}
+
+.gif-wrap img {
+  display: block;
+  max-width: 100%;
+}
+
+.form-instruction {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.created-link {
+  background: transparent;
+  padding: 15px;
+  margin: 20px auto;
+  -webkit-box-shadow: 0 2px 10px 2px #fff;
+          box-shadow: 0 2px 10px 2px #fff;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  -webkit-text-decoration: underline #55af2a 2px;
+          text-decoration: underline #55af2a 2px;
+}
+
+footer {
+  background: rgba(10, 31, 42, 0.95);
+  padding: 5px;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=main.css.map */
