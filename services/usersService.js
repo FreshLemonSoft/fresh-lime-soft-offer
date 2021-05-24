@@ -1,6 +1,9 @@
 const User = require('../models/user');
 
 class UsersService {
+    getAll = async() => {
+        return User.find();
+    }
     addNewUser = async(user) => {
         try {
             const newUser = await new User({
