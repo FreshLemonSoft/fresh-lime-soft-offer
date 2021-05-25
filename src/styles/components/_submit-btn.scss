@@ -1,0 +1,22 @@
+.submit-btn {
+   color: #fff;
+   background: #55AF2A;
+   outline: none;
+   border: 1px solid transparent;
+   padding: 10px;
+   transition: .5s ease;
+   border-radius: 15px;
+   letter-spacing: 2px;
+   grid-column-start: 3;
+   grid-column-end: 5;
+   font-size: 16px;
+   text-transform: uppercase;
+   font-weight: 700;
+   cursor: pointer;
+   
+   &:hover {
+       text-shadow: 0 0 10px #fff;
+       border: 1px solid #fff;
+       transition: .5s ease;
+   }
+}

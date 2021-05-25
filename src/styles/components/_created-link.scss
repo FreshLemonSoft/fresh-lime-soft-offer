@@ -7,4 +7,19 @@
     text-align: center;
     color: #fff;
     text-decoration: underline $lime-green 2px;
+    font-size: 20px;
+    line-height: 30px;
+    
+    a {
+        font-size: 20px;
+        line-height: 30px;
+        color: #fff;
+        text-decoration: underline $lime-green 2px;
+        transition: .5s ease;
+
+        &:hover {
+            text-shadow: 0 0 10px #fff;
+            transition: .5s ease;
+        }
+    }
 }

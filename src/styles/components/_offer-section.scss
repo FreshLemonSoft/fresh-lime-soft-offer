@@ -2,7 +2,6 @@
     margin: 20px auto;
     line-height: 30px;
     word-spacing: 3px;
-    font-size: 20px;
     cursor: default;
     color: #fff;
     
@@ -15,7 +14,7 @@
 
 .offer {
     background:$bg-color;
-    width: 45%;
+    width: 60%;
     text-align: left;
     padding: 20px;
     box-shadow: 0 0 25px 2px #ccc;
@@ -23,6 +22,7 @@
     position: relative;
     margin: 50px auto;
     overflow: hidden;
+    font-size: 20px;
 
     &::before {
         content: '';

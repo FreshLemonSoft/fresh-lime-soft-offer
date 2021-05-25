@@ -1,0 +1,159 @@
+@media screen and (max-width: 1330px) {
+   .content {
+      max-width: 960px;
+      transition: .5s ease;
+   }
+
+   .offer {
+      width: 60%;
+   }
+}
+
+@media screen and (max-width: 1025px){
+   .inputs {
+      grid-template-columns: 1fr 1fr;
+   }
+
+   .offer {
+      font-size: 18px;
+      width: 70%;
+
+      &-type {
+         grid-row: 2 / 3;
+         grid-gap: 5px 20px;
+      }
+   }
+
+   .created-link {
+      font-size: 18px;
+   }
+}
+
+@media screen and(max-width: 980px) {
+   .content {
+      max-width: 70%;
+   }
+
+   .contacts {
+      li + li {
+         margin-top: 5px;
+      }
+   }
+
+   .text {
+      line-height: 25px;
+   }
+
+   .submit-btn {
+      grid-column-start: 2;
+      grid-column-end: 6;
+   }
+
+   .offer,
+   .created-link a,
+   .contacts li {
+      font-size: 16px;
+   }
+
+   .offer {
+      width: unset;
+   }
+
+   .social {
+      a {
+         margin-right: 5px;
+
+         &:last-child {
+            margin: 0;
+         }
+      }
+   }
+
+   .gif-wrap {
+      width: 55%;
+   }
+}
+
+@media screen and (max-width: 630px) {
+   .content {
+      max-width: 80%;
+   }
+
+   .logo {
+      &-icon {
+         width: 80%;
+      }
+   }
+
+   .inputs {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+   }
+
+   .offer-type {
+      grid-template-columns: 1fr;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row: unset;
+   }
+
+   .grid {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-end: 7;
+      
+      & + .grid {
+         grid-column-start: 1;
+         grid-row-end: 3;
+         grid-row-start: 2;
+      }
+   }
+
+   .submit-btn {
+      font-size: 14px;
+   }
+
+   .offer,
+   .created-link a,
+   .contacts li {
+      font-size: 15px;
+   }
+
+   .created-link {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+   }
+
+   .gif-wrap {
+      margin: 30px auto;
+      width: 80%;
+   }
+
+}
+
+@media screen and (max-width: 420px) {
+   .content {
+      max-width: 90%;
+   }
+
+   .offer::before {
+      border-width: 0 35px 35px 0;
+   }
+   
+   .contacts {
+      li {
+         font-size: 12px;
+      }
+   }
+
+   .text {
+      line-height: 20px;
+   }
+
+   .social {
+      a {
+         width: 25px;
+         height: 25px;
+      }
+   }
+}

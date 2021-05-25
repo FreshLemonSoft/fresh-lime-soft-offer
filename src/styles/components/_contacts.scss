@@ -1,0 +1,21 @@
+.contacts {
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+   color: #fff;
+
+   li {
+      font-size: 20px;
+
+      & + li {
+         margin-top: 10px;
+      }
+
+      a {
+         text-decoration: none;
+         color: inherit;
+         line-height: 30px;
+         border-bottom: 1px solid $lime-green;
+      }
+   }
+}

@@ -7,10 +7,6 @@
                         <Logo />
                     </router-link>
                 </div>
-                <nav class="nav">
-                    <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/admin">Admin</router-link></li>
-                </nav>
             </div>
         </div>
     </header>

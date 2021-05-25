@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue"
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -6,7 +7,17 @@ export const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: () => import("../views/Home.vue"),
+      component: Home
+    },
+    {
+      path: "/newOffer/",
+      name: "newOffer",
+      component: Home
+    },
+    {
+      path: "/newOffer/:id",
+      name: "newOfferId",
+      component: Home
     },
     {
       path: "/admin",
@@ -16,6 +27,6 @@ export const router = createRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  next();
-});
+// router.beforeEach((to, from, next) => {
+//   next();
+// });

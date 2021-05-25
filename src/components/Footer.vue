@@ -7,10 +7,7 @@
                         <Logo />
                     </router-link>
                 </div>
-                <nav class="nav">
-                    <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/admin">Admin</router-link></li>
-                </nav>
+                <Contacts />
             </div>
         </div>
     </footer>
@@ -18,10 +15,12 @@
 
 <script>
 import Logo from '../assets/svg/Logo.vue'
+import Contacts from './Contacts.vue'
 
 export default {
     components: {
-        Logo
+        Logo,
+        Contacts
     }
 }
 </script>

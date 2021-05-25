@@ -5,7 +5,10 @@
 @import './components/header';
 @import './components/content';
 @import './components/logo';
-@import './components/nav';
+@import './components/grid';
+@import './components/submit-btn';
+@import './components/contacts';
+@import './components/social';
 @import './components/form';
 @import './components/input-value';
 @import './components/inputs';
@@ -16,3 +19,4 @@
 @import './components/form-instruction';
 @import './components/created-link';
 @import './components/footer';
+@import './helpers/media';
