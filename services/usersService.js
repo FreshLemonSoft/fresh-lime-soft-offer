@@ -3,7 +3,7 @@ const User = require('../models/user');
 class UsersService {
     getAll = async() => {
         return User.find();
-    }
+    };
     addNewUser = async(user) => {
         try {
             const newUser = await new User({
@@ -28,7 +28,7 @@ class UsersService {
         } catch (e) {
             console.log(e);
         }
-    }
+    };
 }
 
 module.exports = new UsersService();

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const usersRoutes = require('./routes/usersRoutes');
 const invitesRoutes = require('./routes/invitesRoutes');
+const adminsRoutes = require('./routes/adminsRoutes');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use('/users', usersRoutes);
 app.use('/invites', invitesRoutes);
+app.use('/admin', adminsRoutes);
 
 const PORT = 9000;
 
@@ -30,4 +32,4 @@ const start = async() => {
         console.log(e);
     }
 }
-start();
+start().then();
