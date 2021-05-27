@@ -2,14 +2,14 @@
       <Header />
 
    <div class="content">
-      <p class="form-instruction">1. Введите номер контактов и выберите тип оффера</p>
+      <p class="form-instruction">1. Выберите тип оффера</p>
       <form class="form" @submit.prevent="submit">
-         <input 
+         <!-- <input 
             type="text" 
             name="hr-contact-input" 
             class="input-value grid" 
             placeholder="Номер HR"
-            v-model="inputs.HRContactPhone">
+            v-model="inputs.HRContactPhone"> -->
             
 
          <select 
@@ -127,6 +127,7 @@ export default {
          'ALL_OFFERS',
          'CREATED_LINK',
          'CREATED_ID',
+         'USER_TOKEN'
       ]),
    },
    methods: {
@@ -134,13 +135,13 @@ export default {
          'POST_VALUE_TO_API'
       ]),
 
-      postValues() {
-         this.POST_VALUE_TO_API(this.inputs);
-      },
-
       ...mapMutations([
          'SET_VALUE_TO_STATE'
       ]),
+
+      postValues() {
+         this.POST_VALUE_TO_API(this.inputs);
+      },
    },
    watch: {
       selectedOffer(newValue) {

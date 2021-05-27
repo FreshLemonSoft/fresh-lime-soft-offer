@@ -10,6 +10,7 @@ body {
   background: #eee;
   font-family: 'Rubik';
   background: rgba(10, 31, 42, 0.95);
+  color: #fff;
 }
 
 @font-face {
@@ -50,13 +51,7 @@ header {
 .grid {
   -ms-grid-column: 1;
       grid-column-start: 1;
-  grid-column-end: 4;
-}
-
-.grid + .grid {
-  -ms-grid-column: 4;
-      grid-column-start: 4;
-  grid-column-end: 7;
+  grid-column-end: 3;
 }
 
 .submit-btn {
@@ -155,6 +150,31 @@ header {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 7;
+}
+
+.auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #fff;
+  width: 50%;
+  margin: 20px auto;
+  padding: 30px;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.auth-type {
+  margin-bottom: 30px;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
 }
 
 .input-value {
@@ -269,6 +289,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 40%;
 }
 
 .gif-wrap img {
@@ -447,10 +468,6 @@ footer {
   .created-link {
     overflow-wrap: break-word;
     word-wrap: break-word;
-  }
-  .gif-wrap {
-    margin: 30px auto;
-    width: 80%;
   }
 }
 

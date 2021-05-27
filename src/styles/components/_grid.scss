@@ -1,9 +1,9 @@
 .grid {
    grid-column-start: 1;
-   grid-column-end: 4;
+   grid-column-end: 3;
    
-   & + .grid {
-      grid-column-start: 4;
-      grid-column-end: 7;
-   }
+   // & + .grid {
+   //    grid-column-start: 4;
+   //    grid-column-end: 7;
+   // }
 }
