@@ -18,7 +18,6 @@ class UsersService {
                 appointmentDate: user.appointmentDate,
                 meetPerson: user.meetPerson,
                 contactPhone: user.contactPhone,
-                HRcontactPhone: user.HRcontactPhone,
             });
             await newUser.save();
             return  {

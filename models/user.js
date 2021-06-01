@@ -10,15 +10,15 @@ const user = new Schema({
       required: true,
     },
     mainSalary: {
-        type: Number,
+        type: String,
         required: true,
     },
     qualifyingSalary: {
-        type: Number,
+        type: String,
         required: true,
     },
     traineeSalary: {
-        type: Number,
+        type: String,
         default: null,
     },
     qualifyingPeriod: {
@@ -44,10 +44,6 @@ const user = new Schema({
     contactPhone: {
         type: String,
         default: '+375 33 317-32-84'
-    },
-    HRcontactPhone: {
-        type: String,
-        required: true,
     },
     createdAt: {
         type: Date,
