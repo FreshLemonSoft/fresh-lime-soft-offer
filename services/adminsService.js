@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 class AdminsService {
-    registerNewAdmin = async(admin) => {
+    registerNewAdmin = async(res, admin) => {
         try {
             const isAdmin = await Admin.findOne({name: admin.name});
             if (!isAdmin) {
@@ -14,16 +14,15 @@ class AdminsService {
                     password: hashPass,
                 });
                 await newUser.save();
+                return jwt.sign({name}, 'secretKey');
             } else {
-                return {
-                    message: "Admin with this name has already been created"
-                };
+                return res.status(400).json({message: "Admin with this name has already been created"});
             }
         } catch (e) {
             console.log(e);
         }
     };
-    login = async(name, password) => {
+    login = async(res, name, password) => {
         try {
             const admin = await Admin.findOne({name});
             if (admin) {
@@ -35,14 +34,10 @@ class AdminsService {
                         HRcontactPhone: admin.phone,
                     };
                 } else {
-                    return {
-                        message: "wrong password",
-                    };
+                    return res.status(400).json({message: "wrong password"})
                 }
             } else {
-                return {
-                    message: "Admin not found",
-                };
+                return res.status(400).json({message: "Admin not found"});
             }
         } catch (e) {
             console.log(e);

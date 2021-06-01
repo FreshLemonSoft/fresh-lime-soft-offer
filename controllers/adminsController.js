@@ -3,10 +3,10 @@ const adminsService = require('../services/adminsService');
 class AdminsController {
     service = adminsService;
     registerNewAdmin = async (req, res) => {
-        res.status(201).send(await this.service.registerNewAdmin(req.body));
+        await this.service.registerNewAdmin(res, req.body);
     };
     login = async (req, res) => {
-        res.status(201).send(await this.service.login(req.body.name, req.body.password));
+        await this.service.login(res, req.body.name, req.body.password);
     };
 }
 
