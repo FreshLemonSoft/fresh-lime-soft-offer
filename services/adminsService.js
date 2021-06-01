@@ -14,7 +14,7 @@ class AdminsService {
                     password: hashPass,
                 });
                 await newUser.save();
-                return jwt.sign({name}, 'secretKey');
+                res.json({token: jwt.sign(admin.name, 'secretKey')});
             } else {
                 return res.status(400).json({message: "Admin with this name has already been created"});
             }
