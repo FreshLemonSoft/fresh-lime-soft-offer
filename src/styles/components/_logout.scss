@@ -1,0 +1,12 @@
+.logout {
+   border-radius: 10px;
+   border: 1px solid $lime-green;
+   padding: 10px;
+   transition: .5s ease;
+   cursor: pointer;
+
+   &:hover {
+      box-shadow: 0 0 10px 4px $lime-green;
+      transition: .5s ease;
+   }
+}

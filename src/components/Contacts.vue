@@ -2,7 +2,7 @@
     <ul class="contacts">
         <li>С уважением,</li>
         <li><a href="https://www.freshlimesoft.com">Fresh Lime Soft</a></li>   
-        <li><a :href="'tel:' + HR_CONTACT_PHONE">{{HR_CONTACT_PHONE}}</a></li>   
+        <li><a :href="'tel:' + phone">{{phone}}</a></li>   
 
         <li class="social">
             <a href="https://web.facebook.com/Fresh-Lime-Soft-LLC-1076470329199224/" target="_blanc">
@@ -30,6 +30,11 @@ import LogoLinkedin from '../assets/svg/LogoLinkedin.vue'
 import LogoTelegram from '../assets/svg/LogoTelegram.vue'
 
 export default {
+    data() {
+        return {
+            phone: localStorage.getItem('phone')
+        }
+    },
     components: {
         LogoFacebook,
         LogoTelegram,
@@ -41,5 +46,8 @@ export default {
             'HR_CONTACT_PHONE'
         ])
     },
+    // mounted() {
+    //     console.log(this.HR_CONTACT_PHONE);
+    // },
 }
 </script>

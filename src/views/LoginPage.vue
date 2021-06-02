@@ -1,22 +1,24 @@
 <template>
    <div class="content">
       <form class="auth" @submit.prevent="login">
-         <h2 class="auth-type">Login</h2>
+         <h2 class="auth-type">Вход</h2>
          <input 
             class="input-value" 
             type="text" 
-            placeholder="login or email"
-            v-model="auth.name">
+            placeholder="Имя или @mail"
+            v-model="auth.name"
+            required>
          <input 
             class="input-value" 
             type="password" 
-            placeholder="password"
-            v-model="auth.password">
+            placeholder="Пароль"
+            v-model="auth.password"
+            required>
          <button 
             type="login" 
-            class="submit-btn"
-            @click.prevent="login">Login</button>
-            <p>or <router-link to="/admin/signup">Sign Up</router-link></p>
+            class="submit-btn auth-btn"
+            @click.prevent="login">Войти</button>
+            <p>или <router-link to="/admin/signup">Регистрация</router-link></p>
       </form>
    </div>
 </template>
@@ -24,14 +26,13 @@
 <script>
 import { useRouter } from 'vue-router'
 import { mapActions, mapGetters } from 'vuex'
-import axios from 'axios'
 
 export default {
    setup() {
       const router = useRouter()
 
-      function pushTo() {
-         router.push('/admin')
+      function pushTo(path) {
+         router.push(path)
       }
 
       return {
@@ -59,18 +60,25 @@ export default {
       ]),
 
       login() {
-         this.LOGIN_USER(this.auth,)
+         this.LOGIN_USER(this.auth)
 
-         setTimeout(() => {
-            if(this.USER_TOKEN) {
-               this.pushTo()
-            } else if(this.ERROR_MESSAGE) {
-               alert(this.ERROR_MESSAGE)
-            } else {
-               alert('what do you want')
-            }
-         }, 200);
+         if(localStorage.getItem('token')) {
+            this.pushTo('/admin')
+         } else if(!localStorage.getItem('token')) {
+            this.pushTo('/admin/signup')
+         } else {
+            alert('help2')
+         }
       }
    },
+   mounted() {
+      if(localStorage.getItem('token')) {
+         this.pushTo('/admin')
+      } else if(!localStorage.getItem('token')) {
+         this.pushTo('/admin/login')
+      } else {
+         console.log('ERROR');
+      }
+   }
 }
 </script>

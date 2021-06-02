@@ -1,27 +1,30 @@
 <template>
    <div class="content">
-      <form class="auth" @submit.prevent="signup">
-         <h2 class="auth-type">Sign Up</h2>
+      <form class="auth" @submit="signup">
+         <h2 class="auth-type">Регистрация</h2>
          <input 
             class="input-value" 
             type="text" 
-            placeholder="login or email"
-            v-model="auth.name">
+            placeholder="Имя или @mail"
+            v-model="auth.name"
+            required>
          <input 
             class="input-value" 
             type="text" 
-            placeholder="phone number"
-            v-model="auth.phone">
+            placeholder="Номер телефона HR"
+            v-model="auth.phone"
+            required>
          <input 
             class="input-value" 
             type="password" 
-            placeholder="password"
-            v-model="auth.password">
+            placeholder="Пароль"
+            v-model="auth.password"
+            required>
          <button 
-            type="signup" 
-            class="submit-btn"
-            @click.prevent="signup">Login</button>
-            <p>or <router-link to="/admin/login">Login</router-link></p>
+            type="submit" 
+            class="submit-btn auth-btn"
+            @click.prevent="signup">Зарегистрироваться</button>
+            <p>или <router-link to="/admin/login">Войти</router-link></p>
       </form>
    </div>
 </template>
@@ -29,14 +32,13 @@
 <script>
 import { useRouter } from 'vue-router'
 import { mapActions } from 'vuex'
-import axios from 'axios'
 
 export default {
    setup() {
       const router = useRouter()
 
-      function pushTo() {
-         router.push('/admin/login')
+      function pushTo(path) {
+         router.push(path)
       }
 
       return {
@@ -55,28 +57,33 @@ export default {
    },
    methods: {
       ...mapActions([
-         'SIGNUP_NEW_USER'
+         'SIGNUP_NEW_USER',
       ]),
 
 
       signup() {
          this.SIGNUP_NEW_USER(this.auth)
-         // axios.post('http://localhost:9000/admin/register', {
-         //           name: this.auth.name,
-         //           phone: this.auth.phone,
-         //           password: this.auth.password
-         //       })
-         //       .then(res => {
-         //           console.log(res);
-         //       })
-         //       .catch(err => {
-         //           console.log(err);
-         //           return err;
-         //       })
-         // setTimeout(() => {
-         //    this.pushTo()
-         // }, 200);
+         
+         if(!localStorage.getItem('token')) {
+            this.pushTo('/admin/signup')
+         } else if(localStorage.getItem('token')) {
+            setTimeout(() => {
+               this.pushTo('/admin')
+            }, 1000);
+         } else {
+            console.log('ERROR');
+         }
       }
    },
+   mounted() {
+      if(localStorage.getItem('token')) {
+         this.pushTo('/admin')
+      } else if(!localStorage.getItem('token')) {
+         this.pushTo('/admin/signup')
+      } else {
+         console.log('ERROR');
+      }
+   }
+
 }
 </script>

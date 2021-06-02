@@ -1,7 +1,8 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 const TerserPlugin = require("terser-webpack-plugin");
-// const Dotenv  = require("dotenv");
+const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
 
 let optimization = {
   minimizer: [
@@ -22,22 +23,12 @@ let optimization = {
   ],
 };
 
-// const GLOBALS = {
-//   'process.env': {
-//     'NODE_ENV': JSON.stringify('development')
-//   },  
-//   API_SECRET_KEY: JSON.stringify('efb9erfdf6fd9vfd98vd8ssv'),
-// };
-
-// module.exports = {
-//   plugins: [  
-//       new webpack.DefinePlugin(GLOBALS)
-//   ],
-
-//  externals: {
-//     API_SECRET_KEY: 'API_SECRET_KEY'
-//    },
-// }
+const GLOBALS = {
+  'process.env': {
+    'NODE_ENV': JSON.stringify('development'),
+  },  
+  HOST_URL: JSON.stringify('http://localhost:9000')
+};
 
 module.exports = env => {
   const isProd = JSON.parse(env.production);
@@ -102,10 +93,12 @@ module.exports = env => {
     },
     plugins: [
       new VueLoaderPlugin(),
+      new Dotenv(),
+      new webpack.DefinePlugin(GLOBALS)
     ],
-    // externals: {
-    //   API_SECRET_KEY: 'API_SECRET_KEY'
-    // },
+    externals: {
+      HOST_URL: 'HOST_URL'
+    },
     optimization: isProd ? optimization : {},
     devServer: {
       hot: true,

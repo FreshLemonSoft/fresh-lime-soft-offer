@@ -2,19 +2,26 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   border: 1px solid #fff;
    width: 50%;
    margin: 20px auto;
    padding: 30px;
    transition: .5s ease;
 
-   // &:hover {
-   //    background: #fff;
-   //    transition: .5s ease;
+   p {
+      margin-top: 30px;
+      transition: .5s ease;
 
-   //    .auth-type {
-   //       color: $bg-color;
-   //       transition: .5s ease;
-   //    }
-   // }
+      a {
+         transition: .5s ease;
+         line-height: 30px;
+         border-bottom: 1px solid $lime-green;
+         color: #fff;
+         text-decoration: none;
+      }
+   }
+
+   &-btn {
+      font-size: 13px;
+      text-transform: capitalize;
+   }
 }

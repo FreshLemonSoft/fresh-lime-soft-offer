@@ -1,41 +1,41 @@
 import axios from "axios";
 
-const host = 'http://localhost:9000';
-
 const store = {
     actions: {
-        // SIGNUP_NEW_USER(auth) {
-        //     axios.post(host + '/admin/register', {
-        //         name: auth.name,
-        //         phone: auth.phone,
-        //         password: auth.password
-        //     })
-        //     .then(res => {
-        //         console.log(res);
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //         return err;
-        //     });
-        // },
+        SIGNUP_NEW_USER({commit}, auth) {
+            axios.post(HOST_URL + '/admin/register', {
+                name: auth.name,
+                phone: auth.phone,
+                password: auth.password
+            }) 
+            .then(res => {
+                commit('SET_USER_NAME', auth.name)
+                localStorage.setItem('token', (res.data.token))
+                localStorage.setItem('phone', (res.data.HRcontactPhone))
+            })
+            .catch(err => {
+                console.log(err);
+                alert('THIS USERNAME BUSY! CREATE NEW ONE')
+            })
+        },
+
         LOGIN_USER({commit}, auth) {
-            axios.post(host + '/admin/login',{
+            axios.post(HOST_URL + '/admin/login',{
                 name: auth.name,
                 password: auth.password
             })
             .then(res => {
-                commit('GET_USER_TOKEN', res.data);
-                console.log(res);
+                localStorage.setItem('token', (res.data.token))
+                localStorage.setItem('phone', (res.data.HRcontactPhone));
             })
             .catch(err => {
                 console.log(err);
-
-                return err;
             })
         },
 
         POST_VALUE_TO_API({commit}, inputs) {
-            axios.post(host + '/users',{
+            axios.post(HOST_URL + '/users',
+            {
                 name: inputs.name,
                 rank: inputs.rank,
                 vacancyLink: inputs.vacancyLink,
@@ -47,7 +47,11 @@ const store = {
                 appointmentDate: inputs.appointmentDate,
                 meetPerson: inputs.meetPerson,
                 contactPhone: inputs.contactPhone,
-                // HRContactPhone: inputs.HRContactPhone,
+            },
+            {
+                headers:{
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
             })
             .then(res => {
                 commit('SET_VALUE_TO_STATE', res.data, inputs);
@@ -59,34 +63,48 @@ const store = {
         },
 
         GET_VALUE_FROM_API({commit}, id) {
-            axios.get(`${host}/${id}`)
-            // axios.get('https://freshlimesoft.com/newOffer/60aca86f8025b3218cee6727')
-            .then(res => {
-                commit('SET_VALUE_FROM_API', res.data)
+            axios.get(`${HOST_URL}/invites/${id}`, {
+                headers:{
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
             })
+            .then(res => {
+                commit('GET_VALUE_FROM_API', res.data)
+            },
+            )
             .catch(err => {
                 console.log(err)
-
-                return err
             });
         },
 
+        GET_OFFER_TYPE({commit}, type) {
+            commit('SET_OFFER_TYPE')
+        }
     },
     mutations: {
-        GET_USER_TOKEN(state, authUser) {
-            state.authUser = authUser
-        },
-        
         SET_VALUE_TO_STATE(state, link, inputs) {
             state.link = link
             state.inputs = inputs
         },
         
-        SET_VALUE_FROM_API(state, newInputs) {
+        GET_VALUE_FROM_API(state, newInputs) {
             state.newInputs = newInputs
+            localStorage.getItem('token');
         },
+
+        SET_OFFER_TYPE(state, selectedOffer) {
+            state.selectedOffer = selectedOffer
+        },
+
+        SET_USER_NAME(state, name) {
+            state.userName = name
+        }
+
     },
     state: {
+        selectedOffer: '',
+        HRContactPhone: '',
+        userName: '',
         offers: [
             {id: 1, title: 'Стажировка', value: 'trainee'},
             {id: 2, title: 'Испытательный срок', value: 'qualifyingPeriod'}
@@ -103,19 +121,18 @@ const store = {
             appointmentDate: '',
             meetPerson: '',
             contactPhone: '',
-            HRContactPhone: ''
         },
         link: {
             URL:"",
             id:""
         },
-        newInputs:{},
         auth: {
             name: '',
             phone: '',
             password: '',
         },
-        authUser: {},
+        newInputs:{},
+        authUser: {}
     },
     getters: {
         ALL_INPUTS(state) {
@@ -128,7 +145,7 @@ const store = {
             return state.offers
         },
         HR_CONTACT_PHONE(state) {
-            return state.authUser.HRContactPhone
+            return state.authUser.HRcontactPhone
         },
         CREATED_LINK(state) {
             return state.link.URL
@@ -136,11 +153,8 @@ const store = {
         CREATED_ID(state) {
             return state.link.id
         },
-        USER_TOKEN(state) {
-            return state.authUser.token
-        },
-        ERROR_MESSAGE(state) {
-            return state.authUser.message
+        USER_NAME(state) {
+            return state.userName
         }
     }
 };

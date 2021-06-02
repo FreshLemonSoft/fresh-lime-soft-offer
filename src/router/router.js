@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, } from "vue-router";
 import Home from "../views/Home.vue"
 
 export const router = createRouter({
@@ -17,6 +17,7 @@ export const router = createRouter({
     {
       path: "/admin",
       name: "admin",
+      meta: {requiredAuth: true},
       component: () => import("../views/AdminPage.vue"),
     },
     {
@@ -29,18 +30,16 @@ export const router = createRouter({
       name: "login",
       component: () => import("../views/LoginPage.vue"),
     },
-    // {
-    //   path: "/404",
-    //   name: "404",
-    //   component: () => import("../views/404Page.vue"),
-    // },
-    // {
-    //   path: "*",
-    //   redirect: "/404"
-    // },
   ],
 });
 
-// router.beforeEach((to, from, next) => {
-//   next();
-// });
+router.beforeEach((to, from, next) => {
+  const accessToken = localStorage.getItem('token')
+  const requireAuth = to.matched.some(record => record.meta.requireAuth)
+
+  if(requireAuth && !accessToken) {
+    next('/admin/login')
+  } else {
+    next();
+  }
+});
