@@ -14,7 +14,10 @@ class AdminsService {
                     password: hashPass,
                 });
                 await newUser.save();
-                res.json({token: jwt.sign(admin.name, 'secretKey')});
+                res.json({
+                    token: jwt.sign(admin.name, 'secretKey'),
+                    HRcontactPhone: admin.phone,
+                });
             } else {
                 return res.status(400).json({message: "Admin with this name has already been created"});
             }
@@ -29,10 +32,10 @@ class AdminsService {
                 const check = await bcrypt.compare(password, admin.password);
                 if (check) {
                     const token = jwt.sign({name}, 'secretKey');
-                    return {
+                    return res.json({
                         token: token,
                         HRcontactPhone: admin.phone,
-                    };
+                    });
                 } else {
                     return res.status(400).json({message: "wrong password"})
                 }
