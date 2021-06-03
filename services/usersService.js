@@ -7,6 +7,7 @@ class UsersService {
     addNewUser = async(user) => {
         try {
             const newUser = await new User({
+                offerType: user.offerType,
                 name: user.name,
                 rank: user.rank,
                 mainSalary: user.mainSalary,
