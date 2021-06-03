@@ -199,6 +199,7 @@ header {
   border-bottom: 1px solid #55af2a;
   color: #fff;
   text-decoration: none;
+  padding-left: 10px;
 }
 
 .auth-btn {
@@ -324,7 +325,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 40%;
+  width: 30%;
 }
 
 .gif-wrap img {
@@ -437,6 +438,9 @@ footer {
   .created-link {
     font-size: 18px;
   }
+  .gif-wrap {
+    width: 40%;
+  }
 }
 
 @media screen and (max-width: 980px) {
@@ -469,7 +473,7 @@ footer {
     margin: 0;
   }
   .gif-wrap {
-    width: 55%;
+    width: 50%;
   }
 }
 
@@ -518,6 +522,9 @@ footer {
   .created-link {
     overflow-wrap: break-word;
     word-wrap: break-word;
+  }
+  .gif-wrap {
+    width: 60%;
   }
 }
 
