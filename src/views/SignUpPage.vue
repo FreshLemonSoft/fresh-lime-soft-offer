@@ -64,15 +64,17 @@ export default {
       signup() {
          this.SIGNUP_NEW_USER(this.auth)
          
-         if(!localStorage.getItem('token')) {
-            this.pushTo('/admin/signup')
-         } else if(localStorage.getItem('token')) {
-            setTimeout(() => {
-               this.pushTo('/admin')
-            }, 1000);
-         } else {
-            console.log('ERROR');
-         }
+         setTimeout(() => {
+            if(!localStorage.getItem('token')) {
+               this.pushTo('/admin/signup')
+            } else if(localStorage.getItem('token')) {
+               setTimeout(() => {
+                  this.pushTo('/admin')
+               }, 1000);
+            } else {
+               console.log('ERROR');
+            }
+         }, 1000);
       }
    },
    mounted() {

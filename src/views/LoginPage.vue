@@ -62,13 +62,15 @@ export default {
       login() {
          this.LOGIN_USER(this.auth)
 
-         if(localStorage.getItem('token')) {
-            this.pushTo('/admin')
-         } else if(!localStorage.getItem('token')) {
-            this.pushTo('/admin/signup')
-         } else {
-            alert('help2')
-         }
+         setTimeout(() => {
+            if(localStorage.getItem('token')) {
+               this.pushTo('/admin')
+            } else if(!localStorage.getItem('token')) {
+               this.pushTo('/admin/signup')
+            } else {
+               alert('error')
+            }
+         }, 1000);
       }
    },
    mounted() {

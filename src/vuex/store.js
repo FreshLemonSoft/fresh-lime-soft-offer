@@ -9,7 +9,7 @@ const store = {
                 password: auth.password
             }) 
             .then(res => {
-                commit('SET_USER_NAME', auth.name)
+                // commit('SET_USER_NAME', auth.name)
                 localStorage.setItem('token', (res.data.token))
                 localStorage.setItem('phone', (res.data.HRcontactPhone))
             })
@@ -25,6 +25,7 @@ const store = {
                 password: auth.password
             })
             .then(res => {
+                // commit('SET_USER_NAME', auth.name)
                 localStorage.setItem('token', (res.data.token))
                 localStorage.setItem('phone', (res.data.HRcontactPhone));
             })
@@ -47,6 +48,7 @@ const store = {
                 appointmentDate: inputs.appointmentDate,
                 meetPerson: inputs.meetPerson,
                 contactPhone: inputs.contactPhone,
+                offerType: inputs.offerType
             },
             {
                 headers:{
@@ -76,10 +78,6 @@ const store = {
                 console.log(err)
             });
         },
-
-        GET_OFFER_TYPE({commit}, type) {
-            commit('SET_OFFER_TYPE')
-        }
     },
     mutations: {
         SET_VALUE_TO_STATE(state, link, inputs) {
@@ -92,21 +90,16 @@ const store = {
             localStorage.getItem('token');
         },
 
-        SET_OFFER_TYPE(state, selectedOffer) {
-            state.selectedOffer = selectedOffer
-        },
-
-        SET_USER_NAME(state, name) {
-            state.userName = name
-        }
+        // SET_USER_NAME(state, name) {
+        //     state.userName = name
+        // }
 
     },
     state: {
-        selectedOffer: '',
         HRContactPhone: '',
         userName: '',
         offers: [
-            {id: 1, title: 'Стажировка', value: 'trainee'},
+            {id: 1, title: 'Стажировка', value: 'trainee',},
             {id: 2, title: 'Испытательный срок', value: 'qualifyingPeriod'}
         ],
         inputs: {
@@ -121,6 +114,7 @@ const store = {
             appointmentDate: '',
             meetPerson: '',
             contactPhone: '',
+            offerType: '',
         },
         link: {
             URL:"",
@@ -153,9 +147,9 @@ const store = {
         CREATED_ID(state) {
             return state.link.id
         },
-        USER_NAME(state) {
-            return state.userName
-        }
+        // USER_NAME(state) {
+        //     return state.userName
+        // },
     }
 };
 

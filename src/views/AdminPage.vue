@@ -1,5 +1,13 @@
 <template>   
-      <Header />
+   <Header />
+
+   <div class="content">
+      <div class="user">
+         <div @click="logout" class="logout">
+            Выйти
+         </div>
+      </div>
+   </div>
 
    <div class="content">
       <p class="form-instruction">1. Выберите тип оффера</p>
@@ -7,7 +15,7 @@
             
          <select 
             name="offertype" 
-            v-model="data.selectedOffer"
+            v-model="data.inputs.offerType"
             class="select-offer grid">
 
             <option 
@@ -27,7 +35,7 @@
             <input type="text" name="vacancyLink-input" class="input-value" v-model="data.inputs.vacancyLink" placeholder="Ссылка на вакансию">
             
             <div 
-               v-if="data.selectedOffer === 'trainee'" 
+               v-if="data.inputs.offerType === 'trainee'" 
                class="offer-type">
                <input type="text" name="traineePeriod-input" class="input-value" v-model="data.inputs.traineePeriod" placeholder="Период стажировки">
                <input type="text" name="traineeSalary-input" class="input-value" v-model="data.inputs.traineeSalary" placeholder="З/П стажировки">
@@ -66,12 +74,12 @@
    <div class="content offer">
       <p class="text">Привет, <b>{{data.inputs.name || '............'}}</b>!</p>
       <p class="text">Наша последняя встреча и твое успешное техническое собеседование многое поставили на свое место и мы поняли, что именно такого человека не хватает в нашей команде в <a href="https://freshlimesoft.com">Fresh Lime Soft</a> на должности {{data.inputs.rank || '............'}}!</p>
-      <p class="text" v-if="data.selectedOffer === 'trainee'">На стажировку, которая длится {{data.inputs.traineePeriod || '............'}} и испытательного срока который длится {{data.inputs.qualifyingPeriod || '............'}}, мы заключаем договор подряда и предлагаем з/п в размере {{data.inputs.traineeSalary || '............'}} на стажировке и {{data.inputs.qualifyingSalary || '............'}} на испытательном сроке. При этом, если ты сразу попадаешь на проект и будешь показывать хорошие результаты, то сроки могут сократиться. После заключаем контракт на год с з/п в размере {{data.inputs.mainSalary || '............'}}.</p>
+      <p class="text" v-if="data.inputs.offerType === 'trainee'">На стажировку, которая длится {{data.inputs.traineePeriod || '............'}} и испытательного срока который длится {{data.inputs.qualifyingPeriod || '............'}}, мы заключаем договор подряда и предлагаем з/п в размере {{data.inputs.traineeSalary || '............'}} на стажировке и {{data.inputs.qualifyingSalary || '............'}} на испытательном сроке. При этом, если ты сразу попадаешь на проект и будешь показывать хорошие результаты, то сроки могут сократиться. После заключаем контракт на год с з/п в размере {{data.inputs.mainSalary || '............'}}.</p>
       <p class="text" v-else>На испытательный срок, который длится {{data.inputs.qualifyingPeriod || '............'}}, мы заключаем договор подряда и предлагаем з/п в размере {{data.inputs.qualifyingSalary || '............'}}. При этом, если ты сразу попадаешь на проект и будешь показывать хорошие результаты, то сроки могут сократиться. После заключаем контракт на год с з/п в размере {{data.inputs.mainSalary || '............'}}.</p>
       <p class="text">Еще раз напомним условия и требования из вакансии: <a :href="'https://' + data.inputs.vacancyLink ">{{data.inputs.vacancyLink || '         '}}</a></p>
       <p class="text">Если все условия подходят и ты уже мечтаешь начать работать в нашей компании, будем рады видеть тебя в нашем офисе {{data.inputs.appointmentDate}}, по адресу: <a href='https://www.google.com/maps/search/?api=1&query=ул.+Бирюзова+10а,+Минск'>Минск, улица Бирюзова 10А, НЕ главный вход с правого торца здания, 3 этаж, 306 офис.</a></p>
       <p class="text">Тебя встретит наш {{data.inputs.meetPerson || 'офис-менеджер Настя'}}, телефон для связи {{data.inputs.contactPhone || '+375(33)317-32-84'}}. Возьми, пожалуйста, с собой паспорт и карточку социального страхования (если есть).</p>
-      <p class="text" v-if="data.selectedOffer === 'trainee'">Помимо любви и уважения всех коллег, мы еще можем предложить уроки английского языка. Во время стажировки компания оплачивает одно занятие в неделю. Бесплатные занятия будут проходить в группах. Если ты захочешь посещать больше одного занятия в неделю и по истечению стажировки занятия оплачиваются частично(одно занятие обойдётся в 3$). В первые дни в офисе будь готов к прохождению тестового задания на твой уровень английского языка!)</p>
+      <p class="text" v-if="data.inputs.offerType === 'trainee'">Помимо любви и уважения всех коллег, мы еще можем предложить уроки английского языка. Во время стажировки компания оплачивает одно занятие в неделю. Бесплатные занятия будут проходить в группах. Если ты захочешь посещать больше одного занятия в неделю и по истечению стажировки занятия оплачиваются частично(одно занятие обойдётся в 3$). В первые дни в офисе будь готов к прохождению тестового задания на твой уровень английского языка!)</p>
       <p class="text" v-else>Помимо любви и уважения всех коллег, мы еще можем предложить уроки английского языка. Во время испытательного срока компания оплачивает одно занятие в неделю. Бесплатные занятия будут проходить в группах. Если ты захочешь посещать больше одного занятия в неделю и по истечению испытательного срока занятия оплачиваются частично(одно занятие обойдётся в 3$). В первые дни в офисе будь готов к прохождению тестового задания на твой уровень английского языка!)</p>
       <p class="text">Если еще остались какие-то вопросы или уточнения, пожалуйста, напиши мне.</p>
    </div>
@@ -101,7 +109,6 @@ export default {
       }
 
       const data = reactive({
-         selectedOffer: 'trainee',
          inputs: {
             HRContactPhone: '',
             name: '',
@@ -115,6 +122,8 @@ export default {
             appointmentDate: '',
             meetPerson: null,
             contactPhone: null,
+            offerType: 'trainee',
+
          },
          link:{
             URL: '',
@@ -134,22 +143,27 @@ export default {
          'ALL_OFFERS',
          'CREATED_LINK',
          'CREATED_ID',
+         // 'USER_NAME'
       ]),
    },
    methods: {
       ...mapActions([
          'POST_VALUE_TO_API',
-         'GET_OFFER_TYPE'
       ]),
 
       postValues() {
-         this.POST_VALUE_TO_API(this.data.inputs);
+         this.POST_VALUE_TO_API(this.data.inputs)
       },
+
+      logout() {
+         localStorage.removeItem('token')
+         localStorage.removeItem('phone')
+         this.pushTo('/admin/login')
+      }
    },
    watch: {
-      selectedOffer(newValue) {
-         this.selectedOffer = newValue
-         this.GET_OFFER_TYPE(newValue)
+      offerType(newValue) {
+         this.data.offerType = newValue
       }
    },
    mounted() {
@@ -160,6 +174,8 @@ export default {
       } else {
          console.log('ERROR');
       }
+
+      console.log(HOST_URL);
    }
 }
 </script>

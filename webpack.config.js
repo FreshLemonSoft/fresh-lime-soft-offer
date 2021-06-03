@@ -27,7 +27,11 @@ const GLOBALS = {
   'process.env': {
     'NODE_ENV': JSON.stringify('development'),
   },  
-  HOST_URL: JSON.stringify('http://localhost:9000')
+  HOST_URL: JSON.stringify('http://3.122.249.144:9000')
+
+  // dev server 
+  
+  // HOST_URL: JSON.stringify('http://localhost:9000')
 };
 
 module.exports = env => {
