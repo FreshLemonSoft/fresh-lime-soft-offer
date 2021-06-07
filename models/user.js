@@ -49,6 +49,9 @@ const user = new Schema({
         type: String,
         default: '+375 33 317-32-84'
     },
+    HRcontactPhone: {
+        type: String,
+    },
     createdAt: {
         type: Date,
         expires: 60 * 60 * 24 * 7, // week
