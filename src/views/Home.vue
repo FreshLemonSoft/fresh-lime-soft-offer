@@ -1,7 +1,7 @@
 <template>
    <Header />
 
-  <div class="content offer">
+  <div class="offer content">
       <p class="text">Привет, <b>{{NEW_INPUTS.name || '............'}}</b>!</p>
       <p class="text">Наша последняя встреча и твое успешное техническое собеседование многое поставили на свое место и мы поняли, что именно такого человека не хватает в нашей команде в <a href="https://freshlimesoft.com">Fresh Lime Soft</a> на должности {{NEW_INPUTS.rank || '............'}}!</p>
       <p class="text" v-if="NEW_INPUTS.offerType === 'trainee'">На стажировку, которая длится {{NEW_INPUTS.traineePeriod || '............'}} и испытательного срока который длится {{NEW_INPUTS.qualifyingPeriod || '............'}}, мы заключаем договор подряда и предлагаем з/п в размере {{NEW_INPUTS.traineeSalary || '............'}} на стажировке и {{NEW_INPUTS.qualifyingSalary || '............'}} на испытательном сроке. При этом, если ты сразу попадаешь на проект и будешь показывать хорошие результаты, то сроки могут сократиться. После заключаем контракт на год с з/п в размере {{NEW_INPUTS.mainSalary || '............'}}.</p>
@@ -25,12 +25,17 @@ import Header from '../components/Header.vue'
 import GifSection from '../components/GifSection.vue'
 import Footer from '../components/Footer.vue'
 import { mapGetters, mapActions } from 'vuex'
-import {useRoute} from 'vue-router'
+import {useRoute, useRouter} from 'vue-router'
 
 export default {
    setup() {
       const route = useRoute() 
+      const router = useRouter()
       const id = route.params.id
+
+      function pushTo(path) {
+        router.push(path)
+      }
 
       return {
          id
@@ -49,6 +54,7 @@ export default {
    },
    mounted() {
       this.GET_VALUE_FROM_API(this.id)
+
    },
    methods: {
       ...mapActions([
@@ -57,3 +63,10 @@ export default {
    },
 }
 </script>
+
+
+<style scoped lang="scss">
+
+
+
+</style>

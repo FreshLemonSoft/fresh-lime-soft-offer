@@ -122,7 +122,7 @@ export default {
             appointmentDate: '',
             meetPerson: null,
             contactPhone: null,
-            offerType: 'trainee',
+            offerType: 'trainee'
 
          },
          link:{
@@ -174,8 +174,114 @@ export default {
       } else {
          console.log('ERROR');
       }
-
-      console.log(HOST_URL);
    }
 }
 </script>
+
+<style lang="scss">
+$bg-color: rgba(10, 31, 42, 0.95);
+$lime-green: #55af2a;
+
+.logout {
+   border-radius: 10px;
+   border: 1px solid $lime-green;
+   padding: 10px;
+   transition: .5s ease;
+   cursor: pointer;
+
+   &:hover {
+      box-shadow: 0 0 10px 4px $lime-green;
+      transition: .5s ease;
+   }
+}
+
+.grid {
+   grid-column-start: 1;
+   grid-column-end: 3;
+}
+
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px 20px;
+
+    &-instruction {
+        grid-column-start: 1;
+        grid-column-end: 7;
+    }
+}
+
+.form-instruction {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.inputs {
+   display: grid;
+   grid-column: 1 / 7;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(5, auto);
+   grid-gap: 5px 20px;
+}
+
+.created-link {
+    background: transparent;
+    padding: 15px;
+    margin: 20px auto;
+    box-shadow: 0 2px 10px 2px #fff;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    text-decoration: underline $lime-green 2px;
+    font-size: 20px;
+    line-height: 30px;
+    
+    a {
+        font-size: 20px;
+        line-height: 30px;
+        color: #fff;
+        text-decoration: underline $lime-green 2px;
+        transition: .5s ease;
+
+        &:hover {
+            text-shadow: 0 0 10px #fff;
+            transition: .5s ease;
+        }
+    }
+}
+
+.select-offer {
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.offer-type { 
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 20px;
+    
+    &:last-child {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+}
+
+.user {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   width: 20%;
+   margin-top: 30px;
+   margin-left: auto;
+}
+
+
+</style>

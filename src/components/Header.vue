@@ -21,3 +21,31 @@ export default {
     },
 }
 </script>
+
+<style lang="scss">
+$bg-color: rgba(10, 31, 42, 0.95);
+$lime-green: #55af2a;
+
+.content {
+    max-width: 1300px;
+    margin: 0 auto;
+    transition: .5s ease;
+}
+
+header {
+    background: $bg-color;
+    padding: 5px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    img {
+        display: block;
+    }
+}
+</style>

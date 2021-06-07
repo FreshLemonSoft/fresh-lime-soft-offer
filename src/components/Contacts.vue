@@ -2,7 +2,7 @@
     <ul class="contacts">
         <li>С уважением,</li>
         <li><a href="https://www.freshlimesoft.com">Fresh Lime Soft</a></li>   
-        <li><a :href="'tel:' + phone">{{phone}}</a></li>   
+        <li><a :href="'tel:' + NEW_INPUTS.HRcontactPhone || phone">{{NEW_INPUTS.HRcontactPhone || phone}}</a></li>   
 
         <li class="social">
             <a href="https://web.facebook.com/Fresh-Lime-Soft-LLC-1076470329199224/" target="_blanc">
@@ -43,11 +43,56 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'HR_CONTACT_PHONE'
+            'NEW_INPUTS'
         ])
     },
-    // mounted() {
-    //     console.log(this.HR_CONTACT_PHONE);
-    // },
 }
 </script>
+
+<style lang="scss">
+
+$bg-color: rgba(10, 31, 42, 0.95);
+$lime-green: #55af2a;
+
+.contacts {
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+   color: #fff;
+
+   li {
+      font-size: 20px;
+
+      & + li {
+         margin-top: 10px;
+      }
+
+      a {
+         text-decoration: none;
+         color: inherit;
+         line-height: 30px;
+         border-bottom: 1px solid $lime-green;
+      }
+   }
+}
+
+.social {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+
+   a {
+      padding: 5px;
+      border: 1px solid $lime-green;
+      border-radius: 10px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+}
+
+
+</style>

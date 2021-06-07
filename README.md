@@ -1,15 +1,19 @@
-# Vue Offer 
-# FRESHLIME SOFT
-## How to start
+# cli_offer
 
-```bash
-# npm
+## Project setup
+```
 npm install
-npm run dev
-
-# yarn
-yarn
-yarn dev
 ```
 
-This will start a webpack dev server on locgit 
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

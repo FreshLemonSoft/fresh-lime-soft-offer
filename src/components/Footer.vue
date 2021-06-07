@@ -24,3 +24,16 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+footer {
+    background: rgba(10,31,42,0.95);
+    padding: 5px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+</style>
