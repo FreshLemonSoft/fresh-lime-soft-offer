@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 
 // const HOST_URL = 'http://localhost:9000'
-const HOST_URL = 'https://3.122.249.144:9000'
+const HOST_URL = 'http://3.122.249.144:9000'
 
 const store = {
   state: {
