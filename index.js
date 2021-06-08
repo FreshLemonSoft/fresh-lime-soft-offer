@@ -15,7 +15,7 @@ app.use('/users', usersRoutes);
 app.use('/invites', invitesRoutes);
 app.use('/admin', adminsRoutes);
 
-const PORT = 9000;
+const PORT = process.env.PORT || 9000;
 
 const start = async() => {
     try {

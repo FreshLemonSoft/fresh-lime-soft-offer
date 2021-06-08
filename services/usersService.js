@@ -6,6 +6,7 @@ class UsersService {
     };
     addNewUser = async(user) => {
         try {
+            console.log(user);
             const newUser = await new User({
                 offerType: user.offerType,
                 name: user.name,
