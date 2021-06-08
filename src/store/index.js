@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
-// const HOST_URL = 'http://localhost:9000'
-const HOST_URL = 'https://3.122.249.144:9000/'
+// const HOST_URL = 'http://localhost:9000/'
+const HOST_URL = 'https://fls-offer.herokuapp.com'
 
 const store = {
   state: {
@@ -51,7 +51,7 @@ const store = {
   },
   actions: {
     SIGNUP_NEW_USER({commit}, auth) {
-            axios.post(HOST_URL + 'admin/register', {
+            axios.post(HOST_URL + '/admin/register', {
                 name: auth.name,
                 phone: auth.phone,
                 password: auth.password
@@ -68,7 +68,7 @@ const store = {
         },
 
         LOGIN_USER({commit}, auth) {
-            axios.post(HOST_URL + 'admin/login',{
+            axios.post(HOST_URL + '/admin/login',{
                 name: auth.name,
                 password: auth.password
             })
@@ -83,7 +83,7 @@ const store = {
         },
 
         POST_VALUE_TO_API({commit}, inputs) {
-            axios.post(HOST_URL + 'users',
+            axios.post(HOST_URL + '/users',
             {
                 name: inputs.name,
                 rank: inputs.rank,
@@ -114,7 +114,7 @@ const store = {
         },
 
         GET_VALUE_FROM_API({commit}, id) {
-            axios.get(`${HOST_URL}invites/${id}`, {
+            axios.get(`${HOST_URL}/invites/${id}`, {
                 headers:{
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }

@@ -94,5 +94,53 @@ $lime-green: #55af2a;
    }
 }
 
+@media screen and(max-width: 980px) { 
+    .contacts {
+        li {
+            font-size: 16px;
+
+            & + li {
+                margin-top: 5px;
+            }
+
+            a {
+                line-height: unset;
+            }
+        } 
+    }
+
+    .social {
+        a {
+            margin-right: 5px;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 630px) { 
+    .contacts {
+        li {
+            font-size: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .contacts {
+        li {
+            font-size: 12px;
+        }
+    }
+   
+    .social {
+        a {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
 
 </style>

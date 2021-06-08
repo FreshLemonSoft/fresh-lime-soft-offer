@@ -20,6 +20,13 @@ $lime-green: #55af2a;
     font-weight: 400;
 }
 
+@font-face {
+    font-family: 'Rubik';
+    src: url('./assets/fonts/Rubik/Rubik-Bold.ttf') format('truetype'); 
+    font-style: normal;
+    font-weight: 700;
+}
+
 body {
     height: 100%;
     background: #eee;
@@ -60,6 +67,33 @@ body {
    margin-bottom: 30px;
    transition: .5s ease;
 }
+}
+
+.content {
+    max-width: 1300px;
+    margin: 0 auto;
+    transition: .5s ease;
+}
+
+.logo {
+    img {
+        display: block;
+    }
+}
+
+.gif-wrap {
+   margin: 50px auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 30%;
+
+   img {
+      border-radius: 10px;
+      display: block;
+      max-width: 100%;
+      width: 100%;
+   }  
 }
 
 .input-value {
@@ -134,7 +168,6 @@ body {
     }
 }
 
-
 .text {
     margin: 20px auto;
     line-height: 30px;
@@ -161,22 +194,10 @@ body {
 }
 
 @media screen and (max-width: 1025px){
-   .inputs {
-      grid-template-columns: 1fr 1fr;
-   }
-
    .offer {
       font-size: 18px;
       width: 70%;
 
-      &-type {
-         grid-row: 2 / 3;
-         grid-gap: 5px 20px;
-      }
-   }
-
-   .created-link {
-      font-size: 18px;
    }
 
    .gif-wrap {
@@ -190,12 +211,6 @@ body {
       max-width: 70%;
    }
 
-   .contacts {
-      li + li {
-         margin-top: 5px;
-      }
-   }
-
    .text {
       line-height: 25px;
    }
@@ -205,24 +220,8 @@ body {
       grid-column-end: 6;
    }
 
-   .offer,
-   .created-link a,
-   .contacts li {
-      font-size: 16px;
-   }
-
    .offer {
       width: unset;
-   }
-
-   .social {
-      a {
-         margin-right: 5px;
-
-         &:last-child {
-            margin: 0;
-         }
-      }
    }
 
    .gif-wrap {
@@ -240,44 +239,9 @@ body {
          width: 80%;
       }
    }
-
-   .inputs {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, auto);
-   }
-
-   .offer-type {
-      grid-template-columns: 1fr;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row: unset;
-   }
-
-   .grid {
-      grid-row-start: 1;
-      grid-row-end: 2;
-      grid-column-end: 7;
-      
-      & + .grid {
-         grid-column-start: 1;
-         grid-row-end: 3;
-         grid-row-start: 2;
-      }
-   }
-
+   
    .submit-btn {
       font-size: 14px;
-   }
-
-   .offer,
-   .created-link a,
-   .contacts li {
-      font-size: 15px;
-   }
-
-   .created-link {
-      overflow-wrap: break-word;
-      word-wrap: break-word;
    }
 
    .gif-wrap {
@@ -291,25 +255,12 @@ body {
       max-width: 90%;
    }
 
-   .offer::before {
-      border-width: 0 35px 35px 0;
-   }
-   
-   .contacts {
-      li {
-         font-size: 12px;
-      }
+   .submit-btn {
+      font-size: 12px;
    }
 
    .text {
       line-height: 20px;
-   }
-
-   .social {
-      a {
-         width: 25px;
-         height: 25px;
-      }
    }
 }
 </style>

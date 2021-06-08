@@ -68,7 +68,8 @@
    <p class="created-link content" v-else>
       <!-- <a :href="CREATED_LINK">{{CREATED_LINK}}</a> -->
       
-      <a :href="'http://localhost:8080/offer/' + CREATED_ID">{{'http://localhost:8080/offer/' + CREATED_ID}}</a>
+      <a :href="'https://frontend.d3rvpcm0w4ve8b.amplifyapp.com/offer/' + CREATED_ID">{{'https://frontend.d3rvpcm0w4ve8b.amplifyapp.com/offer/' + CREATED_ID}}</a>
+      <!-- <a :href="'http://localhost:8080/offer/' + CREATED_ID">{{'http://localhost:8080/offer/' + CREATED_ID}}</a> -->
    </p>
 
    <div class="content offer">
@@ -200,7 +201,6 @@ $lime-green: #55af2a;
    grid-column-end: 3;
 }
 
-
 .form {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -283,5 +283,71 @@ $lime-green: #55af2a;
    margin-left: auto;
 }
 
+@media screen and (max-width: 1025px){
+   .inputs {
+      grid-template-columns: 1fr 1fr;
+   }
 
+   .created-link {
+      font-size: 18px;
+   }
+
+   .offer-type {
+      grid-row: 2 / 3;
+      grid-gap: 5px 20px;
+   }
+}
+
+@media screen and(max-width: 980px) { //admin
+   .offer,
+   .created-link a {
+      font-size: 16px;
+   }
+}
+
+@media screen and(max-width: 630px) { //admin
+   .offer,
+   .created-link {
+         font-size: 15px;
+         a {
+         font-size: 15px;
+      }
+   }
+   
+
+   .created-link {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+   }
+
+   .inputs {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+   }
+
+   .offer-type {
+      grid-template-columns: 1fr;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row: unset;
+   }
+
+   .grid {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-end: 7;
+      
+      & + .grid {
+         grid-column-start: 1;
+         grid-row-end: 3;
+         grid-row-start: 2;
+      }
+   }
+}
+
+@media screen and(max-width: 630px) { 
+   .offer::before {
+      border-width: 0 35px 35px 0;
+   }
+}
 </style>
