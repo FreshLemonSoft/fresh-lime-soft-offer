@@ -14,7 +14,7 @@
             <a href="https://www.linkedin.com/company/fresh-lemon-software-llc/about/" target="_blanc">
                 <LogoLinkedin />
             </a>
-            <a href="https://telegram.me/KaterinaFLS" target="_blanc">
+            <a :href="'https://telegram.me/' + NEW_INPUTS.telegram" target="_blanc">
                 <LogoTelegram />
             </a>
         </li>
@@ -32,7 +32,8 @@ import LogoTelegram from '../assets/svg/LogoTelegram.vue'
 export default {
     data() {
         return {
-            phone: localStorage.getItem('phone')
+            phone: localStorage.getItem('phone'),
+            telegram: localStorage.getItem('telegram')
         }
     },
     components: {
@@ -45,6 +46,9 @@ export default {
         ...mapGetters([
             'NEW_INPUTS'
         ])
+    },
+    mounted() {
+        console.log(this.NEW_INPUTS);
     },
 }
 </script>

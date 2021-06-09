@@ -16,6 +16,12 @@
             required>
          <input 
             class="input-value" 
+            type="text" 
+            placeholder="ID Телеграм без @"
+            v-model="auth.telegram"
+            required>
+         <input 
+            class="input-value" 
             type="password" 
             placeholder="Пароль"
             v-model="auth.password"
@@ -51,6 +57,7 @@ export default {
          auth: {
             name: '',
             phone: '',
+            telegram: '',
             password: ''
          }
       }
