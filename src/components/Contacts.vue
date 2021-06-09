@@ -14,7 +14,7 @@
             <a href="https://www.linkedin.com/company/fresh-lemon-software-llc/about/" target="_blanc">
                 <LogoLinkedin />
             </a>
-            <a :href="'https://telegram.me/' + NEW_INPUTS.telegram" target="_blanc">
+            <a :href="'https://telegram.me/' + NEW_INPUTS.telegram || telegram" target="_blanc">
                 <LogoTelegram />
             </a>
         </li>

@@ -59,7 +59,6 @@ const store = {
                     password: auth.password
                 }) 
                 .then(res => {
-                    // commit('SET_USER_NAME', auth.name)
                     console.log(res.data);
                     localStorage.setItem('token', (res.data.token))
                     localStorage.setItem('phone', (res.data.HRcontactPhone))
@@ -77,7 +76,6 @@ const store = {
                 password: auth.password
             })
             .then(res => {
-                // commit('SET_USER_NAME', auth.name)
                 localStorage.setItem('token', (res.data.token))
                 localStorage.setItem('phone', (res.data.HRcontactPhone))
                 localStorage.setItem('telegram', (res.data.telegram))
