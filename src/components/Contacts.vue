@@ -47,9 +47,6 @@ export default {
             'NEW_INPUTS'
         ])
     },
-    mounted() {
-        console.log(this.NEW_INPUTS);
-    },
 }
 </script>
 

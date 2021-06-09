@@ -159,6 +159,7 @@ export default {
       logout() {
          localStorage.removeItem('token')
          localStorage.removeItem('phone')
+         localStorage.removeItem('telegram')
          this.pushTo('/admin/login')
       }
    },

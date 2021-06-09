@@ -1,4 +1,3 @@
-import { createStore } from 'vuex'
 import axios from 'axios'
 
 // const HOST_URL = 'http://localhost:9000'
@@ -41,41 +40,42 @@ const store = {
     },
     mutations: {
         SET_VALUE_TO_STATE(state, link, inputs) {
-                state.link = link
-                state.inputs = inputs
-            },
+            state.link = link
+            state.inputs = inputs
+        },
             
-            GET_VALUE_FROM_API(state, newInputs) {
-                state.newInputs = newInputs
-                localStorage.getItem('token');
-            },
+        SET_VALUE_FROM_API(state, newInputs) {
+            state.newInputs = newInputs
+            localStorage.getItem('token');
+        },
     },
     actions: {
         SIGNUP_NEW_USER({commit}, auth) {
-                axios.post(HOST_URL + '/admin/register', {
-                    name: auth.name,
-                    phone: auth.phone,
-                    telegram: auth.telegram,
-                    password: auth.password
-                }) 
-                .then(res => {
-                    console.log(res.data);
-                    localStorage.setItem('token', (res.data.token))
-                    localStorage.setItem('phone', (res.data.HRcontactPhone))
-                    localStorage.setItem('telegram', (res.data.telegram))
-                })
-                .catch(err => {
-                    console.log(err);
-                    alert('ОШИБКА')
-                })
-            },
+            axios.post(HOST_URL + '/admin/register', {
+                name: auth.name,
+                phone: auth.phone,
+                telegram: auth.telegram,
+                password: auth.password
+            }) 
+            .then(res => {
+                // console.log(res.data);
+                localStorage.setItem('token', (res.data.token))
+                localStorage.setItem('phone', (res.data.HRcontactPhone))
+                localStorage.setItem('telegram', (res.data.telegram))
+            })
+            .catch(err => {
+                console.log(err);
+                alert('ОШИБКА')
+            })
+        },
 
-            LOGIN_USER({commit}, auth) {
+        LOGIN_USER({commit}, auth) {
             axios.post(HOST_URL + '/admin/login',{
                 name: auth.name,
                 password: auth.password
             })
             .then(res => {
+                // console.log(res.data);
                 localStorage.setItem('token', (res.data.token))
                 localStorage.setItem('phone', (res.data.HRcontactPhone))
                 localStorage.setItem('telegram', (res.data.telegram))
@@ -124,7 +124,8 @@ const store = {
                 }
             })
             .then(res => {
-                commit('GET_VALUE_FROM_API', res.data)
+                commit('SET_VALUE_FROM_API', res.data)
+                console.log(res.data);
             },
             )
             .catch(err => {
