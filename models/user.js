@@ -52,6 +52,9 @@ const user = new Schema({
     HRcontactPhone: {
         type: String,
     },
+    telegram: {
+        type: String,
+    },
     createdAt: {
         type: Date,
         expires: 60 * 60 * 24 * 7, // week
