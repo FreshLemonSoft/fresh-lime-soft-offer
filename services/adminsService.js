@@ -17,6 +17,7 @@ class AdminsService {
                 await newAdmin.save();
                 res.json({
                     token: jwt.sign(admin.name, 'secretKey'),
+                    telegram: admin.telegram,
                     HRcontactPhone: admin.phone,
                 });
             } else {
@@ -35,6 +36,7 @@ class AdminsService {
                     const token = jwt.sign({name}, 'secretKey');
                     return res.json({
                         token: token,
+                        telegram: admin.telegram,
                         HRcontactPhone: admin.phone,
                     });
                 } else {
