@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
-const HOST_URL = 'http://localhost:9000'
-// const HOST_URL = 'https://fls-offer.herokuapp.com'
+// const HOST_URL = 'http://localhost:9000'
+const HOST_URL = 'https://fls-offer.herokuapp.com'
 
 const store = {
     state: {
