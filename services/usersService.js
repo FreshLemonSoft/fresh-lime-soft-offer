@@ -21,6 +21,7 @@ class UsersService {
                 meetPerson: user.meetPerson,
                 contactPhone: user.contactPhone,
                 HRcontactPhone: user.HRcontactPhone,
+                telegram: user.telegram,
             });
             await newUser.save();
             return  {

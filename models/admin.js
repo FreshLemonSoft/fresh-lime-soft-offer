@@ -9,6 +9,10 @@ const admin = new Schema({
         type: String,
         required: true,
     },
+    telegram: {
+        type: String,
+        required: true,
+    },
     password: {
         type: String,
         required: true,

@@ -8,12 +8,13 @@ class AdminsService {
             const isAdmin = await Admin.findOne({name: admin.name});
             if (!isAdmin) {
                 const hashPass = await bcrypt.hash(admin.password, 10);
-                const newUser = new Admin({
+                const newAdmin = new Admin({
                     name: admin.name,
                     phone: admin.phone,
+                    telegram: admin.telegram,
                     password: hashPass,
                 });
-                await newUser.save();
+                await newAdmin.save();
                 res.json({
                     token: jwt.sign(admin.name, 'secretKey'),
                     HRcontactPhone: admin.phone,
