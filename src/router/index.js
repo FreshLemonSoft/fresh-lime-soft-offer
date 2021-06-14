@@ -11,8 +11,8 @@ const routes = [
       }
     },
     {
-      path: "/offer/:id",
-      name: "offerId",
+      path: "/:id",
+      name: "inviteId",
       component: () => import("../views/Home.vue"),
     },
     {

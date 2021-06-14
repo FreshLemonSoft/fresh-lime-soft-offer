@@ -68,7 +68,8 @@
    <p class="created-link content" v-else>
       <!-- <a :href="CREATED_LINK">{{CREATED_LINK}}</a> -->
       
-      <a :href="'https://frontend.d3rvpcm0w4ve8b.amplifyapp.com/offer/' + CREATED_ID">{{'https://frontend.d3rvpcm0w4ve8b.amplifyapp.com/offer/' + CREATED_ID}}</a>
+      <a :href="'https://offer.freshlimesoft.com/' + CREATED_ID">{{'https://offer.freshlimesoft.com/' + CREATED_ID}}</a>
+      <!-- <a :href="'https://frontend.d3rvpcm0w4ve8b.amplifyapp.com/offer/' + CREATED_ID">{{'https://frontend.d3rvpcm0w4ve8b.amplifyapp.com/offer/' + CREATED_ID}}</a> -->
       <!-- <a :href="'http://localhost:8080/offer/' + CREATED_ID">{{'http://localhost:8080/offer/' + CREATED_ID}}</a> -->
    </p>
 
