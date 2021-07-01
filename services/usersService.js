@@ -6,20 +6,9 @@ class UsersService {
     };
     addNewUser = async(user) => {
         try {
-            console.log(user);
             const newUser = await new User({
                 offerType: user.offerType,
-                name: user.name,
-                rank: user.rank,
-                mainSalary: user.mainSalary,
-                qualifyingSalary: user.qualifyingSalary,
-                traineeSalary: user.traineeSalary,
-                qualifyingPeriod: user.qualifyingPeriod,
-                traineePeriod: user.traineePeriod,
-                vacancyLink: user.vacancyLink,
-                appointmentDate: user.appointmentDate,
-                meetPerson: user.meetPerson,
-                contactPhone: user.contactPhone,
+                text: user.text,
                 HRcontactPhone: user.HRcontactPhone,
                 telegram: user.telegram,
             });

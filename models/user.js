@@ -5,49 +5,9 @@ const user = new Schema({
       type: String,
       required: true,
     },
-    name: {
-        type: String,
+    text: {
+        type: Object,
         required: true,
-    },
-    rank: {
-      type: String,
-      required: true,
-    },
-    mainSalary: {
-        type: String,
-        required: true,
-    },
-    qualifyingSalary: {
-        type: String,
-        required: true,
-    },
-    traineeSalary: {
-        type: String,
-        default: null,
-    },
-    qualifyingPeriod: {
-        type: String,
-        required: true,
-    },
-    traineePeriod: {
-        type: String,
-        default: null,
-    },
-    vacancyLink: {
-        type: String,
-        required: true,
-    },
-    appointmentDate: {
-        type: String,
-        required: true,
-    },
-    meetPerson: {
-      type: String,
-      default: 'офис-менеджер Настя'
-    },
-    contactPhone: {
-        type: String,
-        default: '+375 33 317-32-84'
     },
     HRcontactPhone: {
         type: String,
